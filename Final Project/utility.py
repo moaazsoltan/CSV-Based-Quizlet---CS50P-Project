@@ -38,13 +38,18 @@ class Quiz:
 
         for _ in range(notq):
             question_words = []
-            [question_words.append(random.choice(self.all_words_list)) for i in range(4)]
+            while len(question_words) < 4:
+                random_word = random.choice(self.all_words_list)
+                if random_word not in question_words:
+                    question_words.append(random_word)
+
             question = question_words[0]
             correct_answer = all_words[question].meaning
-            # list_of_wrong_answers = random.shuffle([all_words[word].meaning for word in question_words])
             list_of_wrong_answers = list(map(lambda word: all_words[word].meaning, question_words))
+            print(list_of_wrong_answers)
             random.shuffle(list_of_wrong_answers)
-        
+            print(list_of_wrong_answers)
+
 
 
 # Functions
@@ -64,3 +69,10 @@ def verify_int(number):
     except ValueError:
         print("Invalid number of questions")
         raise ValueError
+
+
+def get_asnwer(question):
+    while True:
+        user_answer = input(f"What is the meaning of {question}")
+        if user_answer in ['A', 'B', 'C', 'D']:
+            return user_answer

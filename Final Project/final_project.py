@@ -1,5 +1,4 @@
 import csv
-import random
 from utility import *
 
 
@@ -12,7 +11,7 @@ def main():
     number_of_question = get_number_of_questions()
 
     quiz = Quiz()
-    quiz.begin(10)
+    quiz.begin(number_of_question)
 
 
 if __name__ == "__main__":
