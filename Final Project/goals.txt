@@ -7,3 +7,5 @@ properties
 github
 API
 USE CSV and file i / o
+Maybe use some reggexes
+
