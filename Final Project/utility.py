@@ -8,6 +8,12 @@ class Word:
         self.meaning = meaning
         all_words[spelling] = self
 
+        @property
+        def spelling(self):
+            return self._spelling
+        
+        @spelling.getter
+
     def __str__(self):
         return f"The word is {self.spelling}, meaing: {self.meaning}"
 
@@ -17,7 +23,12 @@ class Word:
 
 
 class Quiz:
-    ...
+    def __init__(self, nots):
+        self.nots = nots
+    
+    def begin(self):
+        self.nots
+    
 
 
 
