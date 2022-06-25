@@ -25,10 +25,7 @@ class Word:
 
 
 class Quiz:
-    def __init__(self, nots):
-        self.nots = nots
-    
-    def begin(self):
+    def begin(self, mode, ):
         self.nots
     
 
