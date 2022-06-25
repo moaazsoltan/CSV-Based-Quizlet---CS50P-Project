@@ -2,12 +2,14 @@ Things i want to employ:
 
 Use Black 1/5
 Use git  1/5
+Use map 5/5
 OOP 2/5
 USE CSV and file io 1/5
 pytest
 pylint
 properties
 API
-user ZIP and Filter
+user zip
+use filter
 Maybe use some reggexes
 
