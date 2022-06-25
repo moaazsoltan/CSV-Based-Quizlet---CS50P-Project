@@ -1,13 +1,13 @@
 Things i want to employ:
 
+Use Black 1/5
+Use git  1/5
+OOP 2/5
+USE CSV and file io 1/5
 pytest
 pylint
-OOP
 properties
-github
 API
-USE CSV and file i / o
+user ZIP and Filter
 Maybe use some reggexes
-Use git 
-
 
