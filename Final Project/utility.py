@@ -8,11 +8,13 @@ class Word:
         self.meaning = meaning
         all_words[spelling] = self
 
-        @property
-        def spelling(self):
-            return self._spelling
-        
-        @spelling.getter
+    @property
+    def spelling(self):
+        return self._spelling
+    
+    @spelling.setter
+    def spelling(self, value):
+        self._spelling = value
 
     def __str__(self):
         return f"The word is {self.spelling}, meaing: {self.meaning}"
