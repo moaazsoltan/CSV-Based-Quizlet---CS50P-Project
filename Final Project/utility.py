@@ -36,12 +36,14 @@ class Quiz:
             print("Wrong usage")
             return
 
+        tested_words = []
         for _ in range(notq):
             question_words = []
             while len(question_words) < 4:
                 random_word = random.choice(self.all_words_list)
-                if random_word not in question_words:
+                if random_word not in question_words and random_word not in tested_words:
                     question_words.append(random_word)
+                    tested_words.append(random_word)
 
             question = question_words[0]
             correct_answer = all_words[question].meaning
@@ -49,7 +51,6 @@ class Quiz:
             print(list_of_wrong_answers)
             random.shuffle(list_of_wrong_answers)
             print(list_of_wrong_answers)
-
 
 
 # Functions
