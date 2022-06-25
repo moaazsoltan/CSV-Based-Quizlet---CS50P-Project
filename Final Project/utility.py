@@ -25,8 +25,25 @@ class Word:
 
 
 class Quiz:
-    def begin(self, mode, ):
-        self.nots
+    all_words_list = all_words.items()
+    modes = ["Lowest Mastery", None]
+
+    # Checking if correct modes
+    def begin(self, notq, mode=None):
+        if not verify_int(notq) or mode not in modes:
+            print("Wrong usage")
+            return
+    
+        for _ in range(notq):
+            question_words = []
+            [question_words.append(random.choice(all_words_list)) for _ in range(4)]
+            question = question_words[1]
+            correct_answer = None
+            list_of_wrong_answers = None
+
+
+        
+
     
 
 
@@ -40,6 +57,14 @@ def get_number_of_questions():
         except ValueError:
             continue
 
+
+def verify_int(number):
+    try:
+        number = int(number)
+        return True
+    except ValueError:
+        print("Invalid number of questions")
+        raise ValueError
 
 
 
