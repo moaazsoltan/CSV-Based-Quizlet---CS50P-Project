@@ -1,0 +1,9 @@
+Things i want to employ:
+
+pytest
+pylint
+OOP
+properties
+github
+API
+USE CSV and file i / o
