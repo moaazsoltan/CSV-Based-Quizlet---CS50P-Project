@@ -1,14 +1,17 @@
 import random
 
 # Constants
-all_words = dict()
+all_words = dict()  # A dictionary of Word: Word instance 
+all_words_list = list(all_words)   # A list of all the words
+tested_words = []   # Keep track of words user was tested on, shouldn't include words used for answers
 
 # Classes
 class Word:
     def __init__(self, spelling: str, meaning: str):
         self.spelling = spelling
         self.meaning = meaning
-        all_words[spelling] = self
+        if type(self) is Word:
+            all_words[spelling] = self
 
     @property
     def spelling(self):
@@ -24,10 +27,33 @@ class Word:
     def __repr__(self):
         return f"The word is {self.spelling}, meaing: {self.meaning}"
 
+# Do I really need to inherit from word? Don't think so
+class Question:
+    def __init__(self):
+        # setting up the question
+        all_words_list = list(all_words)
+        self.question_words = []
+        while len(self.question_words) < 4:
+            random_word = random.choice(all_words_list)
+            if random_word not in self.question_words and random_word not in tested_words:
+                self.question_words.append(random_word)
+
+        self.question_word = self.question_words[0]
+        tested_words.append(self.question_word)
+
+        self.correct_answer = all_words[self.question_word].meaning
+        list_of_wrong_answers = list(map(lambda word: all_words[word].meaning, self.question_words))
+        print(list_of_wrong_answers)
+        random.shuffle(list_of_wrong_answers)
+        print(list_of_wrong_answers)
+
+    def ask(self):
+        print(f"What is the meaning of the word {self.question_word}?")
+        [print(f"A: {self.question_words[i]}") for i in range(4)]
+
 
 class Quiz:
     def __init__(self):
-        self.all_words_list = list(all_words)
         self.modes = ["Lowest Mastery", None]
 
     # Checking if correct modes
@@ -36,21 +62,13 @@ class Quiz:
             print("Wrong usage")
             return
 
-        tested_words = []
         for _ in range(notq):
-            question_words = []
-            while len(question_words) < 4:
-                random_word = random.choice(self.all_words_list)
-                if random_word not in question_words and random_word not in tested_words:
-                    question_words.append(random_word)
-                    tested_words.append(random_word)
+            question_instance = Question()
+            question_instance.ask()
 
-            question = question_words[0]
-            correct_answer = all_words[question].meaning
-            list_of_wrong_answers = list(map(lambda word: all_words[word].meaning, question_words))
-            print(list_of_wrong_answers)
-            random.shuffle(list_of_wrong_answers)
-            print(list_of_wrong_answers)
+
+
+            # Prompt user for right answer
 
 
 # Functions
