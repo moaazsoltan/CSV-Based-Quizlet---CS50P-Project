@@ -1,9 +1,10 @@
-Things i want to employ:
+Things i want to use in this project:
 
 Use Black 1/5
 Use git  1/5
 Use map 5/5
 OOP 2/5
+List Comprehension 5/5
 super class!
 USE CSV and file io 1/5
 pytest
