@@ -1,4 +1,6 @@
+from __future__ import unicode_literals
 import random
+from string import ascii_uppercase
 
 # Constants
 all_words = dict()  # A dictionary of Word: Word instance 
@@ -49,7 +51,7 @@ class Question:
 
     def ask(self):
         print(f"What is the meaning of the word {self.question_word}?")
-        [print(f"A: {self.question_words[i]}") for i in range(4)]
+        [print(f"{chr(65+i)}: {all_words[self.question_words[i]].meaning}") for i in range(4)]
 
 
 class Quiz:
