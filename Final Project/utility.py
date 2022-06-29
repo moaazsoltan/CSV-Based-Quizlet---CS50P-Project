@@ -50,8 +50,10 @@ class Question:
         print(list_of_wrong_answers)
 
     def ask(self):
-        print(f"What is the meaning of the word {self.question_word}?")
-        [print(f"{chr(65+i)}: {all_words[self.question_words[i]].meaning}") for i in range(4)]
+        print(f"What is the meaning of the word {self.question_word}?", end="")
+        # for i in range(4):
+        #     yield f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}"
+        yield from [f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}" for i in range(4)]
 
 
 class Quiz:
@@ -66,7 +68,7 @@ class Quiz:
 
         for _ in range(notq):
             question_instance = Question()
-            question_instance.ask()
+            print(*question_instance.ask())
 
 
 
