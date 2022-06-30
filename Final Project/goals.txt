@@ -15,5 +15,5 @@ API
 user zip
 use filter
 Maybe use some reggexes
-GUI library
+GUI library: Tkinter, PYQT5
 
