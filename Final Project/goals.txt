@@ -5,13 +5,15 @@ Use git  1/5
 Use map 5/5
 OOP 2/5
 List Comprehension 5/5
-super class!
+generators (yield / yield from) 2/5
 USE CSV and file io 1/5
+properties
+super class!
 pytest
 pylint
-properties
 API
 user zip
 use filter
 Maybe use some reggexes
+GUI library
 

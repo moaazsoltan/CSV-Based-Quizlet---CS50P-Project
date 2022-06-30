@@ -55,6 +55,9 @@ class Question:
         #     yield f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}"
         yield from [f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}" for i in range(4)]
 
+    def get_answer(self):
+        
+
 
 class Quiz:
     def __init__(self):
