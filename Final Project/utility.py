@@ -8,6 +8,17 @@ all_words = dict()  # A dictionary of Word: Word instance
 all_words_list = list(all_words)   # A list of all the words
 tested_words = []   # Keep track of words user was tested on, shouldn't include words used for answers
 
+Win = Tk()
+
+Win.title("Quiz")
+root = Frame()
+root.pack()
+
+question = Label(root, widt=60, font=(10), text="Question")
+question.pack()
+
+Win.mainloop()
+
 # Classes
 class Word:
     def __init__(self, spelling: str, meaning: str):
@@ -57,6 +68,7 @@ class Question:
         yield from [f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}" for i in range(4)]
 
     def get_answer(self):
+        ...
         
 
 
