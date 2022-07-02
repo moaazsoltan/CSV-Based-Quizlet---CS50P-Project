@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 import random
 from string import ascii_uppercase
+from tkinter import *
 
 # Constants
 all_words = dict()  # A dictionary of Word: Word instance 
