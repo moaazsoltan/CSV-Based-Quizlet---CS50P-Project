@@ -1,4 +1,5 @@
-from __future__ import unicode_literals
+from __future__ import unicode_literals, annotations
+from asyncio import queues
 import random
 from string import ascii_uppercase
 from tkinter import *
@@ -50,10 +51,11 @@ class Question:
 
         # initialising question attributes
         all_words_list = list(all_words)
+        self.question_word = None
         self.question_words = []
-        self.list_of_wrong_answers = []
-        self.correct_answer
-        self.question_word
+        self.options = []
+        self.correct_answer = None
+        self.correct_asnwer_index = None
 
         # 4 total words, 1 question, 3 false answers
         while len(self.question_words) < 4:
@@ -68,12 +70,17 @@ class Question:
         self.correct_answer = all_words[self.question_word].meaning
 
         # Make a list of the answer options
-        self.list_of_wrong_answers = list(map(lambda word: all_words[word].meaning, self.question_words))
-        print(self.list_of_wrong_answers)
-        # Shuffle the list
-        random.shuffle(self.list_of_wrong_answers)
-        print(self.list_of_wrong_answers)
+        self.options = list(map(lambda word: all_words[word].meaning, self.question_words))
 
+        # Shuffle the list of answers
+        random.shuffle(self.options)
+
+        # Setting correct answer index for tkinter later
+        for index, answer in enumerate(self.options, 1):
+            if answer == self.correct_answer:
+                self.correct_asnwer_index = index
+                break
+        
     def ask(self):
         print(f"What is the meaning of the word {self.question_word}?", end="")
         # for i in range(4):
@@ -89,6 +96,9 @@ class Quiz:
     def __init__(self):
         self.modes = ["Lowest Mastery", None]
         self.list_of_questions = []
+        self.questions = []
+        self.options = []
+        self.answers = []
 
     # Checking if correct modes
     def begin(self, notq, mode=None):
@@ -97,11 +107,17 @@ class Quiz:
             return
 
         for _ in range(notq):
-            question_instance = Question()
-            self.list_of_questions.append(question_instance)
-            print(*question_instance.ask())
+            question = Question()
+            self.list_of_questions.append(question)
+            print(*question.ask())
+        
+        # update class attributes 
+        for question in self.list_of_questions:
+            self.questions.append(question.question_word)
+            self.options.append(question.options)
+            self.answers.append(question.correct_asnwer_index)
 
-            # Prompt user for right answer
+        
 
 
 # Functions
