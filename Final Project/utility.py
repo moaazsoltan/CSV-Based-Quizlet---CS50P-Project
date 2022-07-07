@@ -3,6 +3,9 @@ import random
 from string import ascii_uppercase
 from tkinter import *
 
+# Return a lsit of question Classes, easier to implement using tinker. 
+# Go through the list to make tinker questions
+
 # Constants
 all_words = dict()  # A dictionary of Word: Word instance 
 all_words_list = list(all_words)   # A list of all the words
@@ -44,22 +47,32 @@ class Word:
 # Do I really need to inherit from word? Don't think so
 class Question:
     def __init__(self):
-        # setting up the question
+
+        # initialising question attributes
         all_words_list = list(all_words)
         self.question_words = []
+        self.list_of_wrong_answers = []
+        self.correct_answer
+        self.question_word
+
+        # 4 total words, 1 question, 3 false answers
         while len(self.question_words) < 4:
             random_word = random.choice(all_words_list)
             if random_word not in self.question_words and random_word not in tested_words:
                 self.question_words.append(random_word)
-
+        # word tested on set and included
         self.question_word = self.question_words[0]
         tested_words.append(self.question_word)
 
+        # setting the correct answer for the question
         self.correct_answer = all_words[self.question_word].meaning
-        list_of_wrong_answers = list(map(lambda word: all_words[word].meaning, self.question_words))
-        print(list_of_wrong_answers)
-        random.shuffle(list_of_wrong_answers)
-        print(list_of_wrong_answers)
+
+        # Make a list of the answer options
+        self.list_of_wrong_answers = list(map(lambda word: all_words[word].meaning, self.question_words))
+        print(self.list_of_wrong_answers)
+        # Shuffle the list
+        random.shuffle(self.list_of_wrong_answers)
+        print(self.list_of_wrong_answers)
 
     def ask(self):
         print(f"What is the meaning of the word {self.question_word}?", end="")
@@ -75,6 +88,7 @@ class Question:
 class Quiz:
     def __init__(self):
         self.modes = ["Lowest Mastery", None]
+        self.list_of_questions = []
 
     # Checking if correct modes
     def begin(self, notq, mode=None):
@@ -84,9 +98,8 @@ class Quiz:
 
         for _ in range(notq):
             question_instance = Question()
+            self.list_of_questions.append(question_instance)
             print(*question_instance.ask())
-
-
 
             # Prompt user for right answer
 
