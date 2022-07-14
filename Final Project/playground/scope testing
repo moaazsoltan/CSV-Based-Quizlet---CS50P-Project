@@ -1,0 +1,36 @@
+
+# def main():
+
+#     foo_count = 0
+#     bar_count = 1
+
+#     def foo():
+    
+#         def bar():
+#             print(foo_count)
+#             print(bar_count)
+        
+#         bar()
+    
+#     foo()
+
+
+# if __name__ == "__main__":
+#     main()    
+Score = 100
+def main():
+    Score = 15
+    global Score
+
+    def next():
+        global Score
+        Score += 1
+        
+    for i in range(10):
+        next()
+        print(Score)
+
+    
+
+if __name__ == "__main__":
+    main()

@@ -1,7 +1,7 @@
 from __future__ import unicode_literals, annotations
-from asyncio import queues
 import random
 from string import ascii_uppercase
+from threading import local
 from tkinter import *
 
 # Return a lsit of question Classes, easier to implement using tinker. 
@@ -11,17 +11,6 @@ from tkinter import *
 all_words = dict()  # A dictionary of Word: Word instance 
 all_words_list = list(all_words)   # A list of all the words
 tested_words = []   # Keep track of words user was tested on, shouldn't include words used for answers
-
-Win = Tk()
-
-Win.title("Quiz")
-root = Frame()
-root.pack()
-
-question = Label(root, widt=60, font=(10), text="Question")
-question.pack()
-
-Win.mainloop()
 
 # Classes
 class Word:
@@ -81,24 +70,27 @@ class Question:
                 self.correct_asnwer_index = index
                 break
         
-    def ask(self):
-        print(f"What is the meaning of the word {self.question_word}?", end="")
-        # for i in range(4):
-        #     yield f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}"
-        yield from [f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}" for i in range(4)]
+    # def ask(self):
+    #     print(f"What is the meaning of the word {self.question_word}?", end="")
+    #     # for i in range(4):
+    #     #     yield f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}"
+    #     yield from [f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}" for i in range(4)]
 
-    def get_answer(self):
-        ...
+    # def get_answer(self):
+    #     ...
         
 
 
 class Quiz:
     def __init__(self):
         self.modes = ["Lowest Mastery", None]
+        self.notq = None
         self.list_of_questions = []
         self.questions = []
         self.options = []
         self.answers = []
+        self.score = 0
+        self.question_no = 1
 
     # Checking if correct modes
     def begin(self, notq, mode=None):
@@ -106,10 +98,12 @@ class Quiz:
             print("Wrong usage")
             return
 
+        # Generate Questions
         for _ in range(notq):
+            self.notq = notq
             question = Question()
             self.list_of_questions.append(question)
-            print(*question.ask())
+            # print(*question.ask())
         
         # update class attributes 
         for question in self.list_of_questions:
@@ -117,10 +111,11 @@ class Quiz:
             self.options.append(question.options)
             self.answers.append(question.correct_asnwer_index)
 
-        
 
+##################
+####FUNCTIONS#####
+##################
 
-# Functions
 def get_number_of_questions():
     while True:
         try:

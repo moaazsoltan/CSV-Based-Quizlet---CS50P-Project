@@ -1,6 +1,6 @@
 import csv
-from utility import *
-
+from helpers import *
+from tkinter import *
 
 def main():
     with open("word_list.csv") as file:
@@ -12,6 +12,7 @@ def main():
 
     quiz = Quiz()
     quiz.begin(number_of_question)
+
 
 
 if __name__ == "__main__":
