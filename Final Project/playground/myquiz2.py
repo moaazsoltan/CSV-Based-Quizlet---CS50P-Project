@@ -14,14 +14,14 @@ Answers_test = [3, 2, 3, 2]
 
 
 class tkinterQuiz():
-    def __init__(self, Questions, Options, Answers):
+    def __init__(self, Questions:list, Options:list, Answers:list): # List of strings, list of list of answers, list of ints of correct answer(index)
         # Boiler plate initialisation
         self.Win = Tk()
         self.Win.title("Quiz Game")
 
         self.root = Frame()
         self.root.pack()
-
+    
         self.question = Label(self.root, width=60, font=("Arial", 15), text=Questions[0])
         self.question.pack()
 
