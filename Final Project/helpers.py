@@ -70,18 +70,9 @@ class Question:
                 self.correct_asnwer_index = index
                 break
         
-    # def ask(self):
-    #     print(f"What is the meaning of the word {self.question_word}?", end="")
-    #     # for i in range(4):
-    #     #     yield f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}"
-    #     yield from [f"\n{chr(65+i)}: {all_words[self.question_words[i]].meaning}" for i in range(4)]
-
-    # def get_answer(self):
-    #     ...
-        
 
 class tkinterQuiz():
-    def __init__(self, Questions:list, Options:list, Answers:list): # List of strings, list of list of answers, list of ints of correct answer(index)
+    def __init__(self, Questions:list, Options:list, Answers:list, notq): # List of strings, list of list of answers, list of ints of correct answer(index)
         # Boiler plate initialisation
         self.Win = Tk()
         self.Win.title("Quiz Game")
@@ -94,7 +85,7 @@ class tkinterQuiz():
 
         # constants
         self.Score = 0
-        self.Total_No_Questions = 4
+        self.Total_No_Questions = notq
         self.Question_no = 1
 
         # Quiz Constants
@@ -146,9 +137,6 @@ class tkinterQuiz():
             self.val2.set(0)
             self.val3.set(0)
         
-
-
-
     def next(self):
         if self.val1.get() == 1:
             selected_option = 1
@@ -213,7 +201,7 @@ class Quiz:
             self.options.append(question.options)
             self.answers.append(question.correct_asnwer_index)
         
-        tkinterQuiz(self.questions, self.options, self.answers)
+        tkinterQuiz(self.questions, self.options, self.answers, self.notq)
     
 
 
