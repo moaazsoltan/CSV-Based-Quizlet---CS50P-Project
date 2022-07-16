@@ -6,15 +6,15 @@ Use map 5/5
 OOP 3/5
 List Comprehension 5/5
 generators (yield / yield from) 2/5
-USE CSV and file io 1/5
+USE CSV and file io 2/5
 properties
-super class!
+Inheritance 
 pytest
 pylint
 API
-user zip
+use zip
 use filter
-Maybe use some reggexes
+maybe use some reggexes
 GUI library: Tkinter, PYQT5
 use switch case!
 
