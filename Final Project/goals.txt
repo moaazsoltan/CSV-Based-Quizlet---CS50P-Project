@@ -17,4 +17,5 @@ use filter
 maybe use some reggexes
 GUI library: Tkinter, PYQT5
 use switch case!
+args and kwargs
 

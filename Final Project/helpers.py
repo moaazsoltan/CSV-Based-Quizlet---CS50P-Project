@@ -1,7 +1,5 @@
 from __future__ import unicode_literals, annotations
 import random
-from string import ascii_uppercase
-from threading import local
 from tkinter import *
 
 # Return a lsit of question Classes, easier to implement using tinker. 
@@ -11,6 +9,7 @@ from tkinter import *
 all_words = dict()  # A dictionary of Word: Word instance 
 all_words_list = list(all_words)   # A list of all the words
 tested_words = []   # Keep track of words user was tested on, shouldn't include words used for answers
+total_number_of_words = len(all_words) # will need to use this to ensure I don't have an infinite loop somewhere
 
 # Classes
 class Word:
