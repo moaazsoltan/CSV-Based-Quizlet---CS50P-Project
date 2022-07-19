@@ -7,7 +7,7 @@ OOP 3/5
 List Comprehension 5/5
 generators (yield / yield from) 2/5
 USE CSV and file io 2/5
-properties
+properties 2/3
 Inheritance 
 pytest
 pylint
