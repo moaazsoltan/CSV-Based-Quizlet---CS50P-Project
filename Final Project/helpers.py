@@ -148,8 +148,11 @@ class tkinterQuiz():
         else:
             selected_option = -1
 
+        # if answer is correct
         if self.Answers[self.Question_no-1] == selected_option :
             self.Score += 1
+        
+        #Modify master values
 
         self.Question_no += 1
 
