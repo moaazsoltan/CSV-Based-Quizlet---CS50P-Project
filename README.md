@@ -1,4 +1,8 @@
 # CS50P_Final_project
+# YOUR PROJECT TITLE
+#### Video Demo:  <URL HERE>
+#### Description:
+TODO
 My CS50P Final Project
 Name: Moaaz Soltan
 Purpose: Creating a simple program to help students regularly practice their vocabulary using a simple quiz program. This Software imports all words from an cvs file to make it easy for students to use and manage.
