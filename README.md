@@ -1,4 +1,4 @@
-# CS50P_Final_project
+# CSV Based Quizlet - CS50P Project
 # Python CSV Based Quizlet
 #### Description:
 TODO
