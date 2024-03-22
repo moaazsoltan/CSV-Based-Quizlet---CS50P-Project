@@ -1,9 +1,8 @@
 # CS50P_Final_project
-# YOUR PROJECT TITLE
-#### Video Demo:  <URL HERE>
+# Python CSV Based Quizlet
 #### Description:
 TODO
-My CS50P Final Project
+My CS50P Final Project - Quiz Software for Python
 Name: Moaaz Soltan
 Purpose: Creating a simple program to help students regularly practice their vocabulary using a simple quiz program. This Software imports all words from an cvs file to make it easy for students to use and manage.
 
