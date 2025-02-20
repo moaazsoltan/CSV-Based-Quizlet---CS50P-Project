@@ -1,14 +1,14 @@
 # CSV Based Quizlet - CS50P Project
 # Python CSV Based Quizlet
 #### Description:
-TODO
-My CS50P Final Project - Quiz Software for Python
-Name: Moaaz Soltan
-Purpose: Creating a simple program to help students regularly practice their vocabulary using a simple quiz program. This Software imports all words from an cvs file to make it easy for students to use and manage.
+- My CS50P Final Project - Quiz Software for Python
+- Name: Moaaz Soltan
+- Purpose: Creating a simple program to help students regularly practice their vocabulary using a simple quiz program. This Software imports all words from an cvs file to make it easy for students to use and manage.
 
-File name must be "word_list.csv" and must be in the same directory as the program when it runs.
 
-CSV file template:
+### Usage
+- Input file name must be "word_list.csv" and must be in the same directory as the program when it runs.
+- CSV file template sample: <br>
 word,meaning,sentence,"Mastery Score"
 "Drive","to operate a vhicle","He drives to work everyday","0"
 "Tomato","A type of fruit,"I like eating tomatoes","0"
